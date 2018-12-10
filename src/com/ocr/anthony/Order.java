@@ -158,10 +158,9 @@ public class Order {
      */
     public void runMenus() {
         System.out.println("Combien de menus souhaitez-vous ?");
-        int nbMenus = sc.nextInt();
-        while (nbMenus != 0) {
-            runMenu();
-            nbMenus -= 1;
+
+        for(int nbMenus = sc.nextInt(); nbMenus > 0; nbMenus--) {
+            this.runMenu();
         }
     }
 }
