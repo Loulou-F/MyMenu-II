@@ -1,5 +1,6 @@
 package com.ocr.anthony;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class Order {
@@ -42,5 +43,44 @@ public class Order {
         Scanner sc = new Scanner(System.in);
         int nb = sc.nextInt();
         this.displaySelectedMenu(nb);
+    }
+
+    /**
+     * Display selected side depending on all sides enable or not
+     * All sides enable : rice, vegetables or fries
+     * No all sides enable : rice only or not
+     * @param nbSide chosen side
+     * @param allSidesEnable true if all sides are enabled
+     */
+    public void displaySelectedSide(int nbSide, boolean allSidesEnable) {
+        if (allSidesEnable) {
+            switch (nbSide) {
+                case 1 :
+                    System.out.println("Vous avez choisi comme accompagnement : légumes frais");
+                    break;
+                case 2 :
+                    System.out.println("Vous avez choisi comme accompagnement : frites");
+                    break;
+                case 3 :
+                    System.out.println("Vous avez choisi comme accompagnement : riz");
+                    break;
+                default :
+                    System.out.println("Vous n'avez pas choisi d'accompagnement parmi les choix proposés");
+                    break;
+            }
+        }
+        else {
+            switch (nbSide) {
+                case 1 :
+                    System.out.println("Vous avez choisi comme accompagnement : riz");
+                    break;
+                case 2 :
+                    System.out.println("Vous avez choisi comme accompagnement : pas de riz");
+                    break;
+                default :
+                    System.out.println("Vous n'avez pas choisi d'accompagnement parmi les choix proposés");
+                    break;
+            }
+        }
     }
 }
