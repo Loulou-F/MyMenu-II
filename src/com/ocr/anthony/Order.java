@@ -137,20 +137,30 @@ public class Order {
      */
     public void runMenu() {
         this.displayAvailableMenu();
-        int nbMenu = sc.nextInt();
-        this.displaySelectedMenu(nbMenu);
+        int nbMenu;
+        do {
+            nbMenu = sc.nextInt();
+            this.displaySelectedMenu(nbMenu);
+        }while (nbMenu < 1 || nbMenu > 3);
 
         boolean allSidesEnable = nbMenu != 3;
 
         this.displayAvailableSide(allSidesEnable);
-        int nbSide = sc.nextInt();
-        this.displaySelectedSide(nbSide, allSidesEnable);
+        int nbSide;
+        do {
+            nbSide = sc.nextInt();
+            this.displaySelectedSide(nbSide, allSidesEnable);
+        }while (nbSide < 1 || nbSide > 3 || (nbSide == 3 && !allSidesEnable));
 
         if (nbMenu != 2) {
             this.displayAvailableDrink();
-            int nbDrink = sc.nextInt();
-            this.displaySelectedDrink(nbDrink);
-        }
+            int nbDrink;
+            do {
+                nbDrink = sc.nextInt();
+                this.displaySelectedDrink(nbDrink);
+            }while (nbDrink < 1 || nbDrink > 3);
+            }
+
     }
 
     /**
