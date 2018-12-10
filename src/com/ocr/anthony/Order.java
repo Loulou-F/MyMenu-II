@@ -4,6 +4,8 @@ import java.awt.*;
 import java.util.Scanner;
 
 public class Order {
+    Scanner sc = new Scanner(System.in);
+
     /**
      * Display all available menus in the restaurant.
      */
@@ -135,7 +137,6 @@ public class Order {
      */
     public void runMenu() {
         this.displayAvailableMenu();
-        Scanner sc = new Scanner(System.in);
         int nbMenu = sc.nextInt();
         this.displaySelectedMenu(nbMenu);
 
@@ -149,6 +150,18 @@ public class Order {
             this.displayAvailableDrink();
             int nbDrink = sc.nextInt();
             this.displaySelectedDrink(nbDrink);
+        }
+    }
+
+    /**
+     * Run sevral menus, depending on the customer's will
+     */
+    public void runMenus() {
+        System.out.println("Combien de menus souhaitez-vous ?");
+        int nbMenus = sc.nextInt();
+        while (nbMenus != 0) {
+            runMenu();
+            nbMenus -= 1;
         }
     }
 }
